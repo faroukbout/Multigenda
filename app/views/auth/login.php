@@ -1,13 +1,17 @@
-<?php include '../views/layouts/header.php'; ?>
-<div class="container">
-  <h2>Login</h2>
-  <?php if (isset($_SESSION['error'])): ?>
-    <div class="alert alert-danger"><?= $_SESSION['error']; unset($_SESSION['error']); ?></div>
-  <?php endif; ?>
-  <form action="/login" method="POST">
-    <input type="email" name="email" class="form-control mb-2" placeholder="Email" required>
-    <input type="password" name="password" class="form-control mb-2" placeholder="Password" required>
-    <button type="submit" class="btn btn-primary">Login</button>
-  </form>
+<?php require_once __DIR__ .'/../layouts/header.php'; ?>
+
+<div class="row justify-content-center mt-5">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">Login</div>
+            <div class="card-body">
+                <form action="<?= APP_URL ?>/auth/authenticate" method="POST">
+                    
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
-<?php include '../views/layouts/footer.php'; ?>
+
+<?php require_once __DIR__ .'/../layouts/footer.php'; ?>
